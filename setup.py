@@ -239,8 +239,9 @@ class BuildBinaryGraphs(build_ext.build_ext):
         '--compilation_mode=opt',
         '--copt=-DNDEBUG',
         # '--define=MEDIAPIPE_DISABLE_GPU=1',
+        '--config=cuda',
+        '--spawn_strategy=local',
         '--copt=-DMESA_EGL_NO_X11_HEADERS',
-        '--copt=-DEGL_NO_X11',
         '--action_env=PYTHON_BIN_PATH=' + _normalize_path(sys.executable),
         os.path.join('mediapipe/modules/', graph_path),
     ]
@@ -298,8 +299,9 @@ class BuildExtension(build_ext.build_ext):
         '--compilation_mode=opt',
         '--copt=-DNDEBUG',
         # '--define=MEDIAPIPE_DISABLE_GPU=1',
+        '--config=cuda',
+        '--spawn_strategy=local',
         '--copt=-DMESA_EGL_NO_X11_HEADERS',
-        '--copt=-DEGL_NO_X11',
         '--action_env=PYTHON_BIN_PATH=' + _normalize_path(sys.executable),
         str(ext.bazel_target + '.so'),
     ]

@@ -252,8 +252,9 @@ absl::Status TFLiteGPURunner::InitializeOpenCL(
   MP_RETURN_IF_ERROR(cl_environment_->NewInferenceBuilder(
       cl_options, std::move(graph_cl), builder));
 
+#else
+  return mediapipe::UnimplementedError("Currently only Android is supported");
 #endif  // __ANDROID__
-  return absl::OkStatus();
 }
 
 #ifdef __ANDROID__

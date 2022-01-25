@@ -276,5 +276,5 @@ node {
 node: {
   calculator: "FromImageCalculator"
   input_stream: "IMAGE:filtered_segmentation_mask"
-  output_stream: "IMAGE_GPU:segmentation_mask"
+  output_stream: "IMAGE_CPU:segmentation_mask"
 }
